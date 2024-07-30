@@ -9,6 +9,7 @@
       :tick="tick"
       v-bind="enemy"
 
+    @arrived="$emit(`arrived`,$event)"
     @enemy-died="$emit(`enemyDied`,$event)"
     @new-enemy="$emit(`newEnemy`,$event)"
     />
@@ -22,27 +23,20 @@
 <script>
 import uniqid from "uniqid"
 import * as AllEnemies from "./enemies/Enemies"
-import DummyBat from "./enemies/DummyBat.vue";
+
 
 
   export default {
     components :{
     ...AllEnemies,
-    DummyBat,
 },
-
-  data() {
-    return {
-      x: 5
-    }
-  },
 
     props:{
       tick:Number,
       enemiesOnField:Object,
     },
 
-    emits:["enemyDied","newEnemy"],
+    emits:["enemyDied","newEnemy","arrived"],
 
   }
 </script>

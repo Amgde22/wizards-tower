@@ -10,7 +10,7 @@
       @dragend="dragEndHandler"
       >
         <!-- first letter of spell untill we get icons -->
-          {{ spellData?.componentName[0] }}  <br>
+          {{ getFirstLetters(spellData?.spellName??spellData?.componentName) }}  <br>
     </div>
     <div 
     v-if="props.cooldown != undefined" 
@@ -22,14 +22,16 @@
 <script setup>
 import { ref, watch, watchEffect,computed, onMounted } from 'vue';
 import useSpellData from './spells/useSpellData';
-
+import {getSpellDataByName,getFirstLetters} from "@/functions.js"
 const emit = defineEmits(["spell-selected","spell-deselected","dragging-started","dragging-ended","setWidthAndHight"])
 const props = defineProps({
-
   spellName:{
     type:String,
   },
   cooldown:{
+    type:Number
+  },
+  spellIndex:{
     type:Number
   },
   selectedSpell:{
@@ -48,16 +50,7 @@ const props = defineProps({
 })
 
 
-// reactive data (weird but it works) (don't put into function)
-let spellData = null
-if (props.spellName != undefined) {
-    const dataFunctionName = "get" + props.spellName + "Data"
-  if (useSpellData[dataFunctionName] == undefined) {
-    console.warn("could find spell data in useSpellData of:",props.spellName);
-  }
-  spellData = useSpellData[dataFunctionName]()
-}
-
+const spellData = getSpellDataByName(props.spellName)
 const isSelected = ref(false)
 const selectorRef = ref(null)
 const cooldownRatio = computed(()=>1  - (props.cooldown / spellData.cooldown))
@@ -68,12 +61,10 @@ const cooldownRatio = computed(()=>1  - (props.cooldown / spellData.cooldown))
 onMounted(()=>{
   // for parent component to set spell height and width
   emit("setWidthAndHight" , {
-  width: spellData.hitbox_width,
-  height: spellData.hitbox_height
+    width: spellData.hitbox_width,
+    height: spellData.hitbox_height
   })
 })
-
-
 
 
 // watchers
@@ -83,7 +74,6 @@ watch(()=>props.selectedSpell, ()=>{
   }
   else{
     isSelected.value = false
-
   }
 })
 
@@ -110,7 +100,7 @@ const cooldownBarStyles = computed(()=>{
 
 
 // event handlers
-function clickHandler(params) {
+function clickHandler(e) {
   emit('spell-selected',spellData)
 }
 function dragStartHandler(e) {
@@ -123,12 +113,12 @@ function dragEndHandler(e) {
   emit('dragging-ended')
 }
 
+
 </script>
 
 <style  scoped>
 .spell-selector-container{
   position: relative;
-
   height: min-content;
 }
 .spell-selector{

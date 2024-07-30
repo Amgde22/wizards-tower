@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: inherit !important;
+}
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:"Press Start 2P" ,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif !important;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,14 +19,90 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  font-family: "Press Start 2P", system-ui !important;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: grid;
+}
+.shop-field{
+  background-color: #242424 ;
+}
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.debug-menu{
+  font-size: 12px;
+}
 .block {
   border: 2px solid red;
 }
+.navbar{
+  font-size: 0.9em;
+}
+.navbar-item{
+  display: flex;align-items: center;
+  height: 35px;
+ font-size: 16px;
+}
+
 .enemy,.spell{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   user-select: none;
   transition: all linear 50ms;
 }
 
+.enemy img,.spell img{
+  margin: auto;
+  height: 30px;width: 30px;
+}
+.spell img.icon-lg,.enemy img.icon-lg{
+  margin: auto;
+  height: 50px ;width: 50px;
+}
+.spell img.icon-xl,.enemy img.icon-xl{
+  margin: auto;
+  height: 75px;width: 75px;
+}
+
+
+
+.icon{
+  height: 30px;width: 30px; 
+
+}
+.icon-xl{
+  height: 75px;width: 75px;
+}
+.icon-lg{
+  height: 50px;width: 50px;
+}
+.icon-sm{
+  height: 20px;width: 20px;
+}
+.icon-xs{
+  height: 15px;width: 15px;
+}
+
+.enemy-health-container{
+  padding: 10px;
+  position: absolute;
+  top: 0;left: 0;right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.enemy-health-container > img{
+  margin: 0;
+  height: 15px;width: 15px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -33,12 +112,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  display: grid;
-}
+
 
 h1 {
   font-size: 3.2em;
@@ -51,4 +125,39 @@ button{
   border:1px solid white;
   padding: 0.25em 0.5em;
 }
+* , .unselectable {
+  user-select: none; /* Disable text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+/* Apply the animation to an element with the "rotating" class */
+.rotating {
+  animation: rotate 750ms linear infinite;
+}
+
+.floating{
+  animation: floating 3s infinite linear;
+}
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-7px); /* Adjust the distance as needed */
+  }
+  75% {
+    transform: translateY(7px); /* Adjust the distance as needed */
+  }
+}
+/* Define the keyframes animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 

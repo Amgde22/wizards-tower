@@ -7,7 +7,7 @@ import { onMounted, ref, toValue, watch } from 'vue';
 
 import { field_height,OnCollisionWithEnemy,usePositionStyle,OnPierceDepleated,onReachedEnd ,afterOneSecond,afterHalfSecond,afterTenthSecond} from '../../EntityComposables';
 import useSpellData from './useSpellData';
-import  * as AllSpells from "./spells"
+import thunderICon from "assets/thunder.svg";
 
 const emit = defineEmits(["disappear","spawn-spell"])
 
@@ -29,7 +29,7 @@ const spellData = useSpellData.getThunderData(props)
 const position_x = props.initial_x
 let position_y = 0
 
-if (props.spawnedByAnotherSpell) {
+if (props.spawnedByAnotherSpell == true) {
   spellData.pierce = ref(props.pierce)
   position_y = props.initial_y
 }
@@ -59,7 +59,7 @@ function spawnAnotherThunder() {
       componentName:"Thunder",
       initial_x:position_x,
       initial_y:nextSpawnPosition_y,
-      pierce:spellData.pierce
+      pierce: spellData.pierce
     })
   }) 
 }
@@ -85,7 +85,7 @@ function startDisappearing() {
     'disappearing':disappearing ,
     'spell absolute border-2 border-amber-400 text-amber-300':true}"
   >
-      {{spellData.componentName[0]}} <br>
+  <img class="icon" :src="thunderICon" alt=""> <br>
   </div>
 </template>
 

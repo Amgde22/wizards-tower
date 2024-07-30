@@ -170,34 +170,15 @@ iterate through spellOnHandNames and render a placerComponent for each one
 
 
 # todo
-mana system : - done
-  - pretty up mana bar , make it an actual bar
-  - show me how much mana i will consume and how much ill be left with (maybe only the latter) - done
-  add dev mode - no cooldown , infinite mana -deon
+make game playable
+- hit sound : hpw, dl sounds - done
+- make shop start level - done
+- guide - done
+- iceage
+- laser tower / hypnosis / stone shield
 
-  Freeze : - this one will be hard
-x problems : code sux , replace stack removal with ticks , movers need to know when freeze is activated
-
-  (enemy keeps momentum (flying only) which allows player to do tricks with knockback)
-  - hitting an eveny with freeze inflict isFrozen
-  - when is frozen enemies either:
-  stop flying : go down , when hit walking enemy or ground , take damage , die or go back
-  stop walking : self explanatory
-
-
-  - code freeze (last spell before i show hicham)
-
-
-
-- add more spells , thunder and freeze , tripple twister
-- add more enemies goblin , summoner , golem(slow and tanky) , 
-
-
-- after some content make a mana and health system 
-- death and game over and restart (probably just refresh to restart cuz who cares)
-- publish
-
-add icon to spellData
-add icons to assets
-make spells load thier icon
-add placeSection , color , icon to spellData
+polishing :
+- enemy flash on hit -done
+- toggle debug menu - done
+- level display - done
+- add a font - done

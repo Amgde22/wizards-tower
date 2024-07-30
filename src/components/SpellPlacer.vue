@@ -1,7 +1,7 @@
 <template>
     <div 
-      :class="props.selectedSpell?.placeSection" 
-      class="spell-placer z-10"
+      :class="props.selectedSpell?.placeSection" tabindex="-1"
+      class="spell-placer z-10 unselectable"
       @dragover="dragOverHandle"
       @drop="handleDrop"
       @pointermove="mouseMoveHandler"
@@ -90,9 +90,13 @@ function setWidthAndHight({width,height}) {
   display: block;
   grid-area: 1/a/2/h;
 }
-.spell-placer.left {
+.spell-placer.far-left {
   display: block;
   grid-area: 1/a/5/a;
+}
+.spell-placer.left {
+  display: block;
+  grid-area: 1/a/5/b;
 }
 .spell-placer.bottom {
   display: block;

@@ -6,7 +6,7 @@
     <div class="mana-supply bg-blue-800 " :style="mana_supply_styles">
       <div class="mana-to-be-uses bg-blue-500" :style="mana_to_be_used_styles" ></div>
     </div>
-    <span class="text-white absolute inset-0 text-center z-10">{{ props.manaToBeUsed?(props.manaSupply-props.manaToBeUsed):props.manaSupply   }}</span>
+    <span class="text-white absolute inset-0 text-center z-10 flex items-center justify-center">{{ props.manaToBeUsed?(props.manaSupply-props.manaToBeUsed):props.manaSupply   }}</span>
   </div>
 </template>
 

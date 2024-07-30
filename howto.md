@@ -9,6 +9,8 @@
 ```js
 OnCollisionWithEnemy(props,{position_x,position_y,...spellData},(enemyRef)=>{
   // automatically adds enemy to hitEnemiesRefs :)
+
+  if(spellData.pierce.value <= 0) return // no splash damage
   enemyRef.getHit( toValue(spellData.damage) )
   spellData.pierce.value--
 })
@@ -20,4 +22,3 @@ OnPierceDepleated(spellData.pierce,()=>{
 ```
 
 - add any logic like: onMounted ect...
-- 
