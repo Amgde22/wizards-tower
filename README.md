@@ -8,11 +8,12 @@ Wizard's Tower is a web based tower defense game made with vue 3
 - 6 unique spells
 - 6 levels designed for balance
 
-#### issues 
-- unable to build app for production because of dynamic components and treeshaking
-
 ### How to Access the Game:
-#### Method 1: Development Server
+
+#### Method 1: Public URL (Recommended)
+[https://wizards-tower.pages.dev/](https://wizards-tower.pages.dev/)
+
+#### Method 2: Development Server
 
 1. **Clone the repository**:
    ```bash
@@ -31,5 +32,4 @@ Wizard's Tower is a web based tower defense game made with vue 3
    npm run dev
    ```
 
-#### Method 2: public URL :
-- unavailable untill build issues are solved
+
