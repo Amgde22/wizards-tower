@@ -330,10 +330,10 @@ function getlevel6() {
       enemyComponentList: [
         "LesserBat",
         ["Goblin"],
-        ["Goblin"],
+        ["Goblin","Goblin","Goblin"],
         ["Goblin"],
         ["EvasiveBat", "EvasiveBat", "EvasiveBat"],
-        "ShieldGoblin",
+        "ShieldGoblin","ShieldGoblin",
         ["Goblin"],
         ["EvasiveBat", "EvasiveBat", "EvasiveBat"],
       ],
@@ -343,16 +343,16 @@ function getlevel6() {
       enemyComponentList: [
         "LesserBat",
         ["Bat", "Bat", "Bat"],
-        ["GiantBat", "ShieldBat"],
+        ["GiantBat", "ShieldBat", "ShieldBat"],
         ["Bat", "Bat", "Bat"],
         "Bat",
         ["ShieldBat","Bat"],
         ["Bat",  "ShieldBat","Bat"],
-        "GiantBat",
+        "GiantBat","GiantBat",
         "Bat",
+        "GoblinCamp",
         ["Goblin", "ShieldGoblin"],
-        "Goblin"
-    
+        ["Goblin","Goblin"],    
       ],
     },
   };
