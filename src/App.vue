@@ -37,17 +37,14 @@
     <span class="py-1 px-2 border border-white ml-auto">{{ tick }}</span>
     <button v-for="n in levels.length" class="w-6" @click="jumpToLevel(n)">{{ n }}</button>
   </div>
+
 <!-- navbar -->
-  <div class="navbar flex px-2 items-center block gap-1">
+  <div class="navbar flex px-2 items-center gap-1 border-2 border-gray-400">
     <ManaBar :manaCapacity="manaCapacity" :manaSupply="mana" :manaToBeUsed="selectedSpell?.manaCost"/>
     <HealthBar :max-health="maxHealth" :current-health="currentHealth" />
     <span class="navbar-item py-1 px-2 border-2 border-amber-400 flex items-end">
       {{ money }} <img :src="coinsSrc" class="icon" alt="">
     </span>
-
-
-    
-
     <button @click="pause()" class="ml-auto navbar-item">
       <img v-if="paused" class="icon" :src="playButtonLightSrc" alt="">
       <img v-else class="icon-sm" :src="pauseButtonSrc" alt="">
@@ -69,11 +66,11 @@
 
   </div>
 <!-- base -->
-  <div class="base grid place-items-center block">
+  <div class="base tower grid place-items-center bg-slate-600 border-slate-700 border-4 border-r-red-600">
     <img class="icon-xl" :src="whiteTowerSrc" alt="">
   </div>
 <!-- field -->
-  <div class="field isolate relative block  overflow-hidden"  >
+  <div class="field isolate relative  overflow-hidden border-4 border-gray-200 border-l-red-500"  >
 
     <Guide v-if="level == 1 && !shopVisible && levelIsFinished" :spellsOnField="spellsOnField" />
 
@@ -122,7 +119,7 @@
     />
   </div>
 <!-- spell menu -->
-  <div class="spell-menu block flex p-6 gap-3"
+  <div class="spell-menu flex p-6 gap-3 border-2 border-gray-400"
   @click.self="deselectSpell()">
 
     <p class="pt-5">spells:</p>
@@ -286,6 +283,7 @@ export default {
       }
     },
     decreaseMana(ammount){
+      if(this.devMode) return
       const original_mana = this.mana
       this.mana = Math.round( this.mana - ammount )
       if (this.mana < 0) {
@@ -391,6 +389,7 @@ export default {
     },
     putSpellOnCooldown(spellData){
       if (this.devMode) return
+
       const spellName = spellData.componentName
       const cooldownAmmount = spellData.cooldown
         if (this.spellCooldowns[spellName] == undefined) {

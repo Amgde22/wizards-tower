@@ -42,7 +42,7 @@ watch(position_y , (position_y)=>{
   }
 })
 
-watch(()=>[followedEnemyEnemyref.isFrozen,followedEnemyEnemyref.isDead],()=>{
+watch(()=>[followedEnemyEnemyref.isFrozen,followedEnemyEnemyref.isDead,followedEnemyEnemyref],()=>{
   emit('disappear', props); // ice block disappears if enemy is either [unfrozen,dead]
 })
 

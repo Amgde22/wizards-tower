@@ -47,7 +47,7 @@ watch(numberOfHitEnemies,(numberOfHitEnemies)=>{
     followedEnemyEnemyref.getHit(1)
   }
 })
-watch(()=>[followedEnemyEnemyref.isHypnotized,followedEnemyEnemyref.isDead],()=>{
+watch(()=>[followedEnemyEnemyref.isHypnotized,followedEnemyEnemyref.isDead,followedEnemyEnemyref],()=>{
   emit('disappear', props); // hypnosis disappears if enemy is either [unhypnotized,dead]
 })
 
