@@ -69,7 +69,7 @@ onReachedBase(position_x,()=>{
   <div 
     :style="styleObject"
     class="enemy
-    absolute grid place-items-center border-2 border-red-950">
+    absolute grid place-items-center border-2 border-slate-500">
     <div class="enemy-health-container">
       <img v-for="n in enemyData.health.value" :key="n" :src="heart" alt="Heart">
     </div>

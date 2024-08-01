@@ -70,7 +70,7 @@ useMakeEnemyAbsorbPierce(props,enemy,enemyData)
   <div 
     :style="styleObject"
     class="enemy
-    absolute border-2 border-gray-400">
+    absolute border-2 border-slate-500">
     <div class="enemy-health-container">
       <img v-for="n in enemyData.health.value" :key="n" :src="heart" alt="Heart">
     </div>

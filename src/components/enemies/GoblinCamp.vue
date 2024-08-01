@@ -44,6 +44,8 @@ const enemy = useEnemy(props,{...enemyData})
 const {position_x,position_y} = useMovementManager(props,useSpawnGrounded,enemy,enemyData)
 const styleObject = usePositionStyle(position_x,position_y,enemyData.hitbox_width, enemyData.hitbox_height,enemy.isFlashing)
 
+giveEnemyKnockbackImmunity(enemy)
+
 everyTwoSeconds(props, ()=>{
   if (enemy.isFrozen.value || enemy.isHypnotized.value) return
   const random_y = Math.random() * 50
@@ -75,7 +77,7 @@ onReachedBase(position_x,()=>{
   <div 
     :style="styleObject"
     class="enemy
-    absolute grid place-items-center border-2 border-red-950">
+    absolute grid place-items-center border-2 border-amber-800">
     <div class="enemy-health-container">
       <img v-for="n in enemyData.health.value" :key="n" :src="heart" alt="Heart">
     </div>
